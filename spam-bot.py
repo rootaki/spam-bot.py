@@ -16,15 +16,35 @@ input('''what's spammy bot?
 time.sleep(0.5)
 
 input('''how does it work?
-once the program has been started, all you have to do is go to the text bar of any social network (whatsapp, instagram, facebook, telegram) and wait for the bot to do its job.
+
+Once the program has been started, all you have to do is go to the text bar of any social network (whatsapp, instagram, facebook, telegram) and wait for the bot to do its job.
 once the program is activated you have 5 seconds to select the text bar.
+
 Press 'Enter' to start the program.''')
 
+time.sleep(5.00)
 
-f = open("spam.txt", "r")
+def spam():
+        file = open("spam.txt", "r")
 
-for word in f:
-    pyautogui.typewrite(word)
-    pyautogui.hotkey(interval = 1.5)
-    pyautogui.typewrite("\n")
+        for word in file:
+        
+                pyautogui.typewrite(word)
+                pyautogui.hotkey(interval = 1.5)
+                pyautogui.typewrite("\n")
 
+spam()
+
+print("All word sent correct. ")
+
+choose = str(input("Do you want to restart spam? [y/n] "))
+
+while (choose.lower() == "y" or "yes"):
+        spam()
+
+if (choose == "n" or "no"):
+        input("OK, Press 'Enter' to close the program. ")
+
+if (choose.lower() != "n" or "no" or "yes" or "y"):
+        print("Uh Oh! Something went wrong. ")
+        input("Press 'Enter' to close ")
